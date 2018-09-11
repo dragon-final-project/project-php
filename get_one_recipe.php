@@ -1,12 +1,13 @@
 <?php
   // connect
-  $test = include('./connect.php');
+  $connect = include('./connect.php');
 
   // try get recipe_id
   if(isset($_GET['r_id'])){
     $r_id = $_GET['r_id'];
   }
   else {
+    // get a default recipe id if no given r_id
     $r_id = '000035f7ed';
   }
 

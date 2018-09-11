@@ -1,6 +1,6 @@
 <?php
   // connect
-  $test = include('./connect.php');
+  $connect = include('./connect.php');
 
   // all recipes
   echo '<h2>All recipes: </h3>';
