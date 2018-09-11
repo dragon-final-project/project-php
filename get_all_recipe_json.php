@@ -8,13 +8,8 @@
   $res->execute();
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);
 
-  // $data = [];
-  // foreach($rows as $row){
-  //   $data
-  // }
-  // echo "</table>";
-
   // json_encode
+  header('Content-type: application/json');
   echo json_encode($rows);
 
 ?>
