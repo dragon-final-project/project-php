@@ -12,7 +12,7 @@
   }
 
   // fetch
-  $sql = "SELECT * FROM `recipe` WHERE id='{$r_id}'";
+  $sql = "SELECT id, title, avg_star, img_path, name FROM `recipe` JOIN `account` WHERE recipe.id='{$r_id}'";
   $res = $db->prepare($sql);
   $res->execute();
   $row = $res->fetch(PDO::FETCH_ASSOC);
@@ -34,7 +34,8 @@
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);
   // append
   $data['instructions'] = $rows;
-
+  
+  // json_encode
   header('Content-type: application/json');
   echo json_encode($data);
 
