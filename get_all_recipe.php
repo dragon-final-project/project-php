@@ -4,7 +4,7 @@
 
   // all recipes
   echo '<h2>All recipes: </h3>';
-  $sql = "SELECT * FROM `recipe`";
+  $sql = "SELECT * FROM `recipe` JOIN (SELECT user_id, name FROM `account`) AS account ON account.user_id=recipe.creator_id WHERE img_path != 'none'";
   $res = $db->prepare($sql);
   $res->execute();
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);

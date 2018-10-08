@@ -2,8 +2,8 @@
   // connect
   $connect = include('./connect.php');
 
-  // $user_id = $_POST['user_id'];
-  $user_id = "17";
+  $user_id = $_POST['user_id'];
+  //$user_id = "17";
 
   // all recipes
   $sql = "SELECT * FROM `my_favorite` " .
