@@ -1,8 +1,13 @@
 <?php
 	$connect = include('./connect.php');
-	$id = $_POST['id'];
+	$title = $_REQUEST['title'];
 
-  $sql = "SELECT step,text FROM instruction WHERE recipe_id='{$id}'";
+  $sql = "SELECT * FROM `recipe` AS rec
+    JOIN (SELECT user_id, name FROM `account`) AS account ON account.user_id=rec.creator_id
+  WHERE title LIKE '%{$title}%'
+  ORDER BY rand() LIMIT 5";
+
+
   $res = $db->prepare($sql);
   $res->execute();
   $rows = $res->fetchAll(PDO::FETCH_ASSOC);

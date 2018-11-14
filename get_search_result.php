@@ -1,13 +1,14 @@
 <?php
 	$connect = include('./connect.php');
-	//$id = $_POST['id'];
-  $id = "0000631d90";
-  $id2 = "00003a70b1";
+	$id = $_POST['id'];
 
-  $sql = "SELECT * FROM recipe WHERE id='00003a70b1'";
-  $res = $db->prepare($sql);
-  $res->execute();
-  $rows = $res->fetchAll(PDO::FETCH_ASSOC);
+	for($i=0;$i<count($id);$i++){
+		$sql = "SELECT created_at FROM recipe WHERE id='{$id[$i]}'";
+		$res = $db->prepare($sql);
+	  $res->execute();
+		$rows = $res->fetch();
+	}
+
 
   // json_encode
   header('Content-type: application/json');

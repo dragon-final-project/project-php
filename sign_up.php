@@ -4,7 +4,7 @@
 	$name = $_POST['name'];
 	$password = $_POST['pwd'];
   $gender = '';
-  $pic_path = '';
+  $pic_path = $_POST['pic_path'];
 
   $sql = "INSERT INTO account (email,name,password,gender,pic_path) VALUES (:email,:name,:password,:gender,:pic_path)";
 	$res = $db->prepare($sql);
